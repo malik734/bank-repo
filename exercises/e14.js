@@ -5,10 +5,15 @@
 // Array example: bankAccounts in /data/data.js
 // getClientsWithWrongBalance(bankAccounts) => [{ name: 'Name1', balance: 32, ... }, { name: 'Name2', balance: 3523, ... }]
 
-export function getClientsWithWrongBalance(array) {
-  // Your code goes here...
-
+export function getClientsWithWrongBalance(accounts) {
+  return accounts.filter(account => {
+    const totalDeposits = account.deposits ? account.deposits.reduce((acc, deposit) => acc + deposit, 0) : 0;
+    const totalWithdrawals = account.withdrawals ? account.withdrawals.reduce((acc, withdrawal) => acc + withdrawal, 0) : 0;
+    const balance = totalDeposits - totalWithdrawals;
+    return balance !== account.balance;
+  })
 }
+
 
 
 

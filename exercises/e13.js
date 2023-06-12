@@ -4,10 +4,16 @@
 // Array example: bankAccounts in /data/data.js
 // getAllAccountsWithSumsOfDepositsLess2000(bankAccounts) => [3432, 43242.34, 23432]
 
-export function getAllAccountsWithSumsOfDepositsLess2000(array) {
-  // Your code goes here...
-
+import { bankAccounts } from "../data/data";
+export function getAllAccountsWithSumsOfDepositsLess2000(accounts) {
+  return accounts.filter(account => {
+    const totalDeposits = account.deposits ? account.deposits.reduce((acc, deposit) => acc + deposit, 0) : 0;
+    return totalDeposits === 0 || totalDeposits < 2000;
+  });
 }
+const result = getAllAccountsWithSumsOfDepositsLess2000(bankAccounts);
+console.log(result);
+
 
 
 

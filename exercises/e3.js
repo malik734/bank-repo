@@ -3,11 +3,13 @@
 // Return the average value for the given array of numbers, f.i.
 // getAverage([22, 45, 4, 65]) => 34
 
-export function getAverage(array) {
-  // Your code goes here...
-
-}
-
+export function getAverage(arrayOne) {
+  let sum = 0;
+  for (let i = 0; i < arrayOne.length; i++) {
+    sum += arrayOne[i];
+  };
+  return sum / arrayOne.length;
+};
 
 
 // === TEST YOURSELF ===
