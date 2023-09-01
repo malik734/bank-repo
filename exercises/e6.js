@@ -2,14 +2,14 @@
 // Return an array of bank account holders' names with a balance of 0
 // Array example: bankAccounts in /data/data.js
 // getClientWithNoMoney(bankAccounts) => ['Kevin', 'Jon']
-
-import { bankAccounts } from "../data/data";
-
 export const getClientWithNoMoney = (array) => {
-  return array
-    .filter((account) => account.balance === 0)
-    .map((account) => account.name);
-};
+  let names = [];
+  for (let info of array) {
+    if (info.balance === 0) {
+      names.push(info.name)
+    }
+  } return names;
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-6"
