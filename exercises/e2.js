@@ -5,15 +5,13 @@
 export function getNumbersWithSquareRoots(max) {
   const result = [];
   for (let i = 0; i <= max; i++) {
-    const root = Math.sqrt(i);
-    if (Number.isInteger(root)) {
-      result.push(i);
-    }
+  let sqrt = Math.sqrt(i);
+  if (Number.isInteger(sqrt)) {
+    result.push(i);
+   }
   }
   return result;
 }
-const numbers = getNumbersWithSquareRoots(17);
-console.log(numbers);
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-2"

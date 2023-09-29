@@ -6,16 +6,28 @@
 
 import { bankAccounts } from "../data/data";
 
+
 export function getClientWithGreatestBalance(array) {
-  return array.reduce((acc, curr) => {
-    if (curr.balance > acc[0].balance) {
-      acc = [curr];
-    } else if (curr.balance === acc[0].balance) {
-      acc.push(curr);
-    }
-    return acc;
-  }, [{ balance: -Infinity }]);
+let maxBalance = null;
+
+for (let acc of array) {
+  if (!maxBalance || acc.balance > maxBalance.balance) {
+    maxBalance = acc;
+  }
 }
+return maxBalance && maxBalance.balance > 0 ? [maxBalance] : [];
+};
+  
+  
+ //  return array.reduce((acc, curr) => {
+ //   if (curr.balance > acc[0].balance) {
+ //     acc = [curr];
+//    } else if (curr.balance === acc[0].balance) {
+//      acc.push(curr);
+//    }
+//    return acc;
+//  }, [{ balance: -Infinity }]);
+// }
 
 
 
